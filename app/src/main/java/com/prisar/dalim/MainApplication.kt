@@ -1,7 +1,6 @@
 package com.prisar.dalim
 
 import android.app.Application
-import com.google.android.datatransport.BuildConfig
 import com.prisar.dalim.di.appModule
 import com.prisar.dalim.di.viewmodelModule
 import io.github.aakira.napier.DebugAntilog
