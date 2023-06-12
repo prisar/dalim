@@ -1,4 +1,4 @@
-package com.prisar.dalim.ui.screens.autocomplete
+package com.prisar.dalim.ui.screens.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Spacer

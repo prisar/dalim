@@ -4,6 +4,8 @@ import android.app.Application
 import com.google.android.datatransport.BuildConfig
 import com.prisar.dalim.di.appModule
 import com.prisar.dalim.di.viewmodelModule
+import io.github.aakira.napier.DebugAntilog
+import io.github.aakira.napier.Napier
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
@@ -13,7 +15,7 @@ class MainApplication : Application() {
         super.onCreate()
 
         if (BuildConfig.DEBUG) {
-//            Napier.base(DebugAntilog())
+            Napier.base(DebugAntilog())
         }
 
         startKoin {

@@ -19,6 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.prisar.dalim.R
 import com.prisar.dalim.ui.theme.DalimTheme
 
 @Composable

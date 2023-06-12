@@ -1,6 +1,5 @@
 package com.prisar.dalim.ui.screens
 
-import android.content.ClipboardManager
 import android.content.res.Configuration
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
@@ -9,12 +8,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,13 +35,22 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.repeatOnLifecycle
 import com.prisar.dalim.R
 import com.prisar.dalim.data.autocomplete.AutoCompleteService
-import com.prisar.dalim.ui.screens.autocomplete.AutoCompleteInfo
+import com.prisar.dalim.data.autocomplete.AutoCompleteService.AutoCompleteServiceError
+import com.prisar.dalim.data.autocomplete.AutoCompleteService.AutoCompleteInputConfiguration
+import com.prisar.dalim.ui.screens.components.AutoCompleteInfo
+import com.prisar.dalim.ui.screens.components.AutoCompleteTextField
+import com.prisar.dalim.ui.screens.components.TextControlBar
+import com.prisar.dalim.ui.screens.components.WindowSizeSelection
 import com.prisar.dalim.ui.theme.DalimTheme
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.koin.androidx.compose.getViewModel
-
+import androidx.compose.ui.platform.ClipboardManager
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -236,6 +246,7 @@ private fun getErrorMessage(error: AutoCompleteServiceError) = when (error) {
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true)
 @Composable
 fun PreviewAutoCompleteScreen() {
     DalimTheme {
@@ -250,7 +261,7 @@ fun PreviewAutoCompleteScreen() {
             onCopy = {},
             onGenerate = {},
             onRetry = {},
-            onAccept = {},°
+            onAccept = {},
             onWindowSizeChange = {},
             onSuggestionsRemoved = {},
             onLinkoutSelect = {},
