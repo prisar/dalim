@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import com.prisar.dalim.R
 import com.prisar.dalim.data.autocomplete.AutoCompleteService.AutoCompleteInputConfiguration
 import com.prisar.dalim.ui.theme.DalimTheme
+import com.prisar.dalim.ui.theme.LightGrey
 
 @Composable
 fun WindowSizeSelection(
@@ -60,11 +61,11 @@ fun WindowSizeSelection(
                 },
                 valueRange = inputConfiguration.minWordCount.toFloat()..inputConfiguration.maxWordCount.toFloat(),
                 steps = 45,
-                colors = SliderDefaults.colors(
-                    activeTickColor = MaterialTheme.colorScheme.primary,
-                    inactiveTrackColor = LightGrey!!,
-                    inactiveTickColor = LightGrey!!
-                ),
+//                colors = SliderDefaults.colors(
+//                    activeTickColor = MaterialTheme.colorScheme.primary,
+//                    inactiveTrackColor = LightGrey,
+//                    inactiveTickColor = LightGrey
+//                ),
                 modifier = Modifier.weight(1f)
             )
             Text(

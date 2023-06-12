@@ -13,4 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-/app/src/assets/autocomplete.tflite
+/app/src/main/assets/autocomplete.tflite
