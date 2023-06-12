@@ -3,14 +3,15 @@ package com.prisar.dalim.ui.screens.autocomplete
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.prisar.dalim.R
+import com.prisar.dalim.ui.theme.DalimTheme
 
 @Composable
 fun AutoCompleteInfo(
@@ -34,7 +35,7 @@ fun AutoCompleteInfo(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true)
 @Composable
 fun PreviewAutCompleteInfo() {
-    TensorFlowDemoTheme {
+    DalimTheme {
         AutoCompleteInfo({})
     }
 }
